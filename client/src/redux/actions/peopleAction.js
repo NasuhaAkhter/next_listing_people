@@ -11,6 +11,12 @@ export const updatePeople = (person)=>{
         payload:person
     }
 }
+export const updateEditOn =(index)=>{
+    return {
+        type:ActionTypes.UPDATE_EDIT_ITEM,
+        payload:index
+    }
+}
 export const SELECTED_PRODUCT =(person) =>{
     return {
         type:ActionTypes.SELECTED_PRODUCT,

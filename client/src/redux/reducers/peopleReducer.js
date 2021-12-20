@@ -4,18 +4,18 @@ const initialState ={
     people:[]
 }
 export const peopleReducer = (state = initialState, {type, payload}) =>{
-    switch (type) {
+     
+     switch (type) {
         case ActionTypes.SET_PEOPLE:
             return {...state, people:payload};
+        case ActionTypes.UPDATE_EDIT_ITEM:
+            return Object.assign({}, ...state, {
+                people: Object.assign({}, state.people[payload], {
+                  isEdit: 1,
+                }),
+              });
         default:
             return state;
     }
 }
-export const personReducer =(state = {}, {type, payload}) =>{
-    switch(type){
-        case ActionTypes.UPDATE_PEOPLE:
-            return {...state, ...payload};
-            default:
-                return state
-    }
-}
+ 
