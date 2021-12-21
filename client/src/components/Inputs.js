@@ -1,11 +1,11 @@
 import {useState} from "react";
 import {useDispatch  } from 'react-redux'
 import axios from 'axios';
-import {updatePeople } from '../redux/actions/peopleAction'
-
+ 
+import {pushSingleItem} from '../redux/actions/peopleAction'
 
  const InputList =() =>{
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [input, setInput] = useState({
         id:-1,
        name: "",
@@ -22,7 +22,7 @@ import {updatePeople } from '../redux/actions/peopleAction'
     async function handleClick(){
         const res = await axios.post("http://localhost:3333/storePeople", {...input})
         if(res.status == 200){
-            // dispatch(updatePeople(res.data))
+            dispatch(pushSingleItem(res.data))
             setInput({
                  id:-1,
                  name: "",

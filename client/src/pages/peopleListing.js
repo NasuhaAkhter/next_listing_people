@@ -6,7 +6,7 @@ import Inputs from '../components/Inputs';
 import {setPeople } from '../redux/actions/peopleAction'
  const PeopleListing  = ()=>{
        const people = useSelector(state =>state);
-      console.log(people.allPeople.people, "people")
+    //   console.log(people.allPeople.people, "people")
       const dispatch = useDispatch();
       useEffect(() => {
         let isCancelled = false
@@ -20,7 +20,7 @@ import {setPeople } from '../redux/actions/peopleAction'
          try{
            const res = await axios.get("http://localhost:3333/getPeoples")
            if(res.status == 200){
-               console.log(res.data)
+            //    console.log(res.data)
                dispatch(setPeople(res.data))
            }
         }catch(error){

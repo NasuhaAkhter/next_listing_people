@@ -17,9 +17,21 @@ export const updateEditOn =(index)=>{
         payload:index
     }
 }
-export const SELECTED_PRODUCT =(person) =>{
+export const updateItem =(person) =>{
     return {
-        type:ActionTypes.SELECTED_PRODUCT,
+        type:ActionTypes.UPDATE_ITEM,
         payload:person
+    }
+}
+export const pushSingleItem =(person) =>{
+    return {
+        type:ActionTypes.PUSH_SINGLE_ITEM,
+        payload:person
+    }
+}
+export const deleteItem =(index) =>{
+    return {
+        type:ActionTypes.REMOVE_SELECTED_PRODUCT,
+        payload:index
     }
 }
