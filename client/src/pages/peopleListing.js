@@ -29,21 +29,35 @@ import {setPeople } from '../redux/actions/peopleAction'
     }
      
     return(
-        <div className="_react_card_wrapper">
-         <div className="_react_card_wrap">
-             <div className="container">
-                 <div className="_react_card_content_wrap">
-                     <div className="row">
-                       <h1>People Listing</h1>
-                       <Inputs/>
-                       { console.log("hello from ", people.allPeople.people)}
-                        <PeopleComponent/>
-                     </div>
-                 </div>
-             </div>
-         </div>
+        <div>
+            
+            <title>Listing people</title>
+            <meta name='keywords' content='web development, programming'/>
+             
+            <div className="_react_card_wrapper">
+                <div className="_react_card_wrap">
+                    <div className="container">
+                        <div className="_react_card_content_wrap">
+                            <div className="row">
+                            <h1>People Listing</h1>
+                            <Inputs/>
+                            { console.log("hello from ", people.allPeople.people)}
+                                <PeopleComponent/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        
     )
- 
+   
+}
+export async function  getServerSideProps( store){
+    
+    const res = await fetch('http://localhost:3333/getPeoples')
+    const people = await res.json()
+    return { props: people }
+    dispatch(addCount())
 }
 export default PeopleListing
